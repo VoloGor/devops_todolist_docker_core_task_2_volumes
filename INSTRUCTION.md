@@ -33,6 +33,11 @@ docker ps
 docker logs -f mysql-local
 ```
 
+> Note: this task expects the Django app to use `HOST = localhost` in `todolist/settings.py`.
+> If your Docker setup does not allow container-to-container access via `localhost`, you may need to
+> adjust your Docker networking so the app container can reach the MySQL container in the same
+> network namespace.
+
 ## 3. Build the Django app image
 
 ```bash
@@ -90,4 +95,4 @@ docker push bobgor/todoapp:2.0.0
 
 - The MySQL container stores data in the `mysql_data` volume.
 - The Django app must point to the running MySQL container in `todolist/settings.py`.
-- If you use Docker Desktop on macOS, `host.docker.internal` is a convenient host value for local testing.
+- The required database host value for this task is `localhost`.
