@@ -44,7 +44,7 @@ docker build -t todoapp:2.0.0 .
 ```bash
 docker run -d \
   --name todoapp \
-  -p 8080:8080 \
+  -p 8000:8000 \
   todoapp:2.0.0
 ```
 
@@ -59,7 +59,7 @@ docker exec -it todoapp python manage.py migrate
 After the app container starts, open:
 
 ```text
-http://localhost:8080
+http://localhost:8000
 ```
 
 ## 7. Docker Hub images
